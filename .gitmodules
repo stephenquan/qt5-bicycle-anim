@@ -1,0 +1,3 @@
+[submodule "qt5-qml-promises"]
+	path = qt5-qml-promises
+	url = https://github.com/stephenquan/qt5-qml-promises.git
