@@ -1,6 +1,8 @@
 # qt5-bicycle-anim
 Qt5 application that animates a Bicycle SVG graphic using Promises.
 
+![qt5-bicycle-anim.gif](qt5-bicycle-anim.gif)
+
 The main animation uses generator function with yield syntax which
 was transpiled from async function with await syntax:
 
