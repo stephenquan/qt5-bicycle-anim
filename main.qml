@@ -4,113 +4,97 @@ import QtQuick.Layouts 1.15
 import QtQuick.Window 2.15
 
 import "qt5-qml-promises"
+import "controls"
 
 Window {
     id: app
 
-    width: 300
-    height: 400
+    width: 800
+    height: 600
     visible: true
-    title: qsTr("Bicycle Animation")
+    title: qsTr("QML Promises Demo")
 
     Page {
         anchors.fill: parent
 
-        Item {
-            id: bicycle
-            x: 50
-            y: 250
-            width: 0
-            height: 0
-            property color color: "blue"
-
-            Button {
-                id: bicycleButton
-                anchors.centerIn: parent
-                background: Item { }
-                icon.source: "bicycle-32.svg"
-                icon.width: 64
-                icon.height: 64
-                icon.color: parent.color
-            }
-        }
-
-        Frame {
-            id: messageFrame
-            anchors.centerIn: parent
-            opacity: 0.0
+        header: Frame {
             background: Rectangle {
-                color: "blue"
-                radius: 5
-            }
-            Text {
-                id: message
-                color: "black"
-            }
-        }
-
-        footer: Frame {
-            background: Rectangle {
-                color: "#e0e0e0"
+                color: "#f0f0f0"
             }
 
             RowLayout {
                 width: parent.width
 
-                Button {
-                    id: goButton
-                    text: qsTr("Go")
-                    onClicked: actionGo()
+                IconButton {
+                    Layout.preferredWidth: 32
+                    Layout.preferredHeight: 32
+                    source: "images/chevron-left-32.svg"
+                    visible: stackView.depth > 1
+                    onClicked: stackView.pop()
                 }
 
-                Item {
+                Icon {
+                    Layout.preferredWidth: 32
+                    Layout.preferredHeight: 32
+                    source: "images/smile-32.svg"
+                }
+
+                Text {
                     Layout.fillWidth: true
+                    text: (stackView.currentPage ? stackView.currentPage.title : null) || app.title
+                    wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                 }
+            }
+        }
 
-                Button {
-                    text: qsTr("User Abort")
-                    onClicked: qmlPromises.userAbort()
+        StackView {
+            id: stackView
+
+            anchors.fill: parent
+
+            property Page currentPage: currentItem
+
+            initialItem: mainPageComponent
+        }
+    }
+
+    Component {
+        id: mainPageComponent
+
+        Page {
+            ListView {
+                anchors.fill: parent
+
+                model: [ "SleepDemo", "PiDemo", "BicycleDemo", "ArcGISSearchDemo" ]
+
+                delegate: Frame {
+                    width: ListView.view.width - 20
+
+                    background: Rectangle {
+                        color: (index & 1) ? "#f0f0f0" : "#e0e0e0"
+
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: stackView.push( modelData + ".qml" )
+                        }
+                    }
+
+                    RowLayout {
+                        width: parent.width
+
+                        Text {
+                            Layout.fillWidth: true
+                            text: modelData
+                        }
+
+                        Icon {
+                            Layout.preferredWidth: 32
+                            Layout.preferredHeight: 32
+                            source: "images/chevron-right-32.svg"
+                        }
+                    }
                 }
             }
         }
     }
-
-    QMLPromises {
-        id: qmlPromises
-    }
-
-    function actionGo() {
-        // Cancel previously running Promises.
-
-        qmlPromises.userAbort();
-
-        // Bicycle animation.
-
-        qmlPromises.asyncToGenerator( function* () {
-            bicycle.x = 50;
-            bicycle.y = 250;
-            bicycle.rotation = 0;
-            message.text = qsTr("On your marks!");
-            message.color = "black";
-            messageFrame.background.color = "red";
-            yield qmlPromises.numberAnimation( { target: messageFrame, property: "opacity", from: 1.0, to: 0.0, duration: 1000 } );
-            message.text = qsTr("Get set!");
-            message.color = "black";
-            messageFrame.background.color = "yellow";
-            yield qmlPromises.numberAnimation( { target: messageFrame, property: "opacity", from: 1.0, to: 0.0, duration: 1000 } );
-            message.text = qsTr("Go!");
-            message.color = "white";
-            messageFrame.background.color = "green";
-            yield qmlPromises.numberAnimation( { target: messageFrame, property: "opacity", from: 1.0, to: 0.0, duration: 1000 } );
-            yield qmlPromises.numberAnimation( { target: bicycle, property: "x", from: 50, to: 250, duration: 1000 } );
-            yield qmlPromises.numberAnimation( { target: bicycle, property: "rotation", from: 0, to: -90, duration: 1000 } );
-            yield qmlPromises.numberAnimation( { target: bicycle, property: "y", from: 250, to: 50, duration: 1000 } );
-            yield qmlPromises.numberAnimation( { target: bicycle, property: "rotation", from: -90, to: -180, duration: 1000 } );
-            yield qmlPromises.numberAnimation( { target: bicycle, property: "x", from: 250, to: 50, duration: 1000 } );
-            yield qmlPromises.numberAnimation( { target: bicycle, property: "rotation", from: 180, to: 90, duration: 1000 } );
-            yield qmlPromises.numberAnimation( { target: bicycle, property: "y", from: 50, to: 250, duration: 1000 } );
-            yield qmlPromises.numberAnimation( { target: bicycle, property: "rotation", from: 90, to: 0, duration: 1000 } );
-        } )();
-    }
-
 }

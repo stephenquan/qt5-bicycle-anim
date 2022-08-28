@@ -2,9 +2,22 @@
     <qresource prefix="/">
         <file>qtquickcontrols2.conf</file>
         <file>main.qml</file>
-        <file>bicycle-32.svg</file>
+        <file>BicycleDemo.qml</file>
+        <file>PiDemo.qml</file>
+        <file>SleepDemo.qml</file>
+        <file>ArcGISSearchDemo.qml</file>
+        <file>controls/Icon.qml</file>
+        <file>controls/IconButton.qml</file>
+        <file>images/a-z-down-32.svg</file>
+        <file>images/bicycle-32.svg</file>
+        <file>images/chevron-left-32.svg</file>
+        <file>images/chevron-right-32.svg</file>
+        <file>images/clock-up-32.svg</file>
+        <file>images/smile-32.svg</file>
         <file>qt5-qml-promises/QMLPromises.qml</file>
         <file>qt5-qml-promises/NumberAnimationPromiseComponent.qml</file>
         <file>qt5-qml-promises/SleepPromiseComponent.qml</file>
+        <file>qt5-qml-promises/WaitUntilPromiseComponent.qml</file>
+        <file>qt5-qml-sortlistmodel/SortListModel.qml</file>
     </qresource>
 </RCC>
