@@ -65,7 +65,7 @@ Window {
             ListView {
                 anchors.fill: parent
 
-                model: [ "SleepDemo", "PiDemo", "BicycleDemo", "ArcGISSearchDemo",
+                model: [ "SleepDemo", "InfiniteLoopDemo", "PiDemo", "BicycleDemo", "ArcGISSearchDemo",
                 "MazeDemo"
                 ]
 

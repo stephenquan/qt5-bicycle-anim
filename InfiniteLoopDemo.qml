@@ -6,7 +6,7 @@ import QtQuick.Window 2.15
 import "qt5-qml-promises"
 
 Page {
-    title: qsTr("Sleep Demo")
+    title: qsTr("Infinite Loop Demo")
 
     ColumnLayout {
         anchors.fill: parent
@@ -15,7 +15,7 @@ Page {
         Text {
             Layout.fillWidth: true
 
-            text: "Demonstrates how to use sleep() delay in a Promise chain."
+            text: qsTr("Demonstrates a breakable infinite loop.")
             wrapMode: Text.WrapAtWordBoundaryOrAnywhere
         }
 
@@ -23,8 +23,10 @@ Page {
             id: listView
             Layout.fillWidth: true
             Layout.fillHeight: true
+
             model: _console
             clip: true
+
             ScrollBar.vertical: ScrollBar {
                 width: 20
             }
@@ -55,20 +57,9 @@ Page {
             width: parent.width
 
             Button {
-                text: qsTr("Run")
-                onClicked: {
-                    enabled = false;
-                    Qt.callLater( function () {
-                        sleepDemo.run();
-                        enabled = true;
-                    } );
-                }
-            }
-
-            Button {
-                text: qsTr("RunAsync")
-                enabled: !sleepDemo.running
-                onClicked: sleepDemo.runAsync()
+                text: qsTr("Start")
+                enabled: !infiniteDemo.running
+                onClicked: infiniteDemo.runAsync()
             }
 
             Button {
@@ -82,8 +73,8 @@ Page {
 
             Button {
                 text: qsTr("Abort")
-                enabled: sleepDemo.running
-                onClicked: sleepDemo.abort()
+                enabled: infiniteDemo.running
+                onClicked: infiniteDemo.abort()
             }
         }
     }
@@ -92,7 +83,7 @@ Page {
         id: _console
 
         function log(...params) {
-            let message = Qt.formatDateTime(new Date(), "[hh:mm:ss] ") + params.join(" ");
+            let message = Qt.formatDateTime(new Date(), "[hh:mm:ss.zzz] ") + params.join(" ");
             console.log(message);
             append( { message } );
             listView.currentIndex = count - 1;
@@ -100,21 +91,14 @@ Page {
     }
 
     QMLPromises {
-        id: sleepDemo
-
-        function run() {
-            _console.log('one');
-            _console.log('two');
-            _console.log('three');
-        }
+        id: infiniteDemo
 
         function runAsync() {
             asyncToGenerator( function* () {
-                _console.log('One');
-                yield sleep(1000);
-                _console.log('Two');
-                yield sleep(1000);
-                _console.log('Three');
+                while (true) {
+                    _console.log("Hello");
+                    yield sleep(1000);
+                }
             } )();
         }
     }
