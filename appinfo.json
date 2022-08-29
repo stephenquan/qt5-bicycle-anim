@@ -95,7 +95,7 @@
     "make": {
         "ignore": [
             "qt5app-*.*",
-	    "screenshots/*.*"
+            "screenshots/*.*"
         ]
     },
     "multipleInstances": true,
@@ -113,6 +113,6 @@
     "urlScheme": "",
     "version": {
         "major": 1,
-        "micro": 10
+        "micro": 11
     }
 }
