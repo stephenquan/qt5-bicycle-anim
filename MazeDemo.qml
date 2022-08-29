@@ -78,16 +78,6 @@ Page {
         }
     }
 
-    ListModel {
-        id: _console
-
-        function log(...params) {
-            let message = Qt.formatDateTime(new Date(), "[hh:mm:ss] ") + params.join(" ");
-            console.log(message);
-            append( { message } );
-        }
-    }
-
     QMLPromises {
         id: mazeDemo
         property ListModel listModel: ListModel { }
