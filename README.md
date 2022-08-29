@@ -54,7 +54,7 @@ Bicycle Demo
 
 Animates a Bicycle SVG graphic using numberAnimation in a Promise chain.
 
-![qt5-bicycle-anim.gif](qt5-bicycle-anim.gif)
+![qt5-bicycle-anim.gif](screenshots/qt5-bicycle-anim.gif)
 
 ```qml
 QMLPromises {
@@ -126,7 +126,7 @@ Maze Demo
 
 Demonstrates how to solve problems with Promise recursion.
 
-![qt5-maze-anim.gif](qt5-maze-anim.gif)
+![qt5-maze-anim.gif](screenshots/qt5-maze-anim.gif)
 
 ```qml
 QMLPromises {

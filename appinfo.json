@@ -94,7 +94,8 @@
     "mainFile": "MyApp.qml",
     "make": {
         "ignore": [
-            "qt5app-*.*"
+            "qt5app-*.*",
+	    "screenshots/*.*"
         ]
     },
     "multipleInstances": true,
@@ -112,6 +113,6 @@
     "urlScheme": "",
     "version": {
         "major": 1,
-        "micro": 9
+        "micro": 10
     }
 }
