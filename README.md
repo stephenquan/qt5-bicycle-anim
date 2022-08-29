@@ -131,6 +131,8 @@ Maze Demo
 
 Demonstrates how to solve problems with Promise recursion.
 
+![qt5-maze-anim.gif](qt5-maze-anim.gif)
+
 ```qml
 QMLPromises {
     id: mazeDemo
