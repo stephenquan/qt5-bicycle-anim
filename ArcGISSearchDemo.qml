@@ -151,15 +151,15 @@ Page {
                 let start = 1;
                 while (start >= 1) {
                     let search = yield fetch( {
-                                                             "method": "POST",
-                                                             "url": `${portalUrl}/sharing/rest/search`,
-                                                             "body": {
-                                                                 "q": "type:web map",
-                                                                 "start": start,
-                                                                 "num": 100,
-                                                                 "f": "pjson"
-                                                             }
-                                                         } );
+                                                 "method": "POST",
+                                                 "url": `${portalUrl}/sharing/rest/search`,
+                                                 "body": {
+                                                     "q": "type:web map",
+                                                     "start": start,
+                                                     "num": 100,
+                                                     "f": "pjson"
+                                                 }
+                                             } );
                     console.log("start:", start, "results: ", search.response.results.length, "nextStart: ", search.response.nextStart, "total: ", search.response.total);
                     itemsListModel.appendItems(search.response.results);
                     if (search.response.nextStart === -1) { break; }
