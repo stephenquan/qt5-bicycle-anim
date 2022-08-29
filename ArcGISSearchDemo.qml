@@ -158,9 +158,6 @@ Page {
                                                                  "start": start,
                                                                  "num": 100,
                                                                  "f": "pjson"
-                                                             },
-                                                             "headers": {
-                                                                 "Content-type": "application/x-www-form-urlencoded"
                                                              }
                                                          } );
                     console.log("start:", start, "results: ", search.response.results.length, "nextStart: ", search.response.nextStart, "total: ", search.response.total);
