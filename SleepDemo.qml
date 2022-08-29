@@ -4,6 +4,7 @@ import QtQuick.Layouts 1.15
 import QtQuick.Window 2.15
 
 import "qt5-qml-promises"
+import "controls"
 
 Page {
     title: qsTr("Sleep Demo")
@@ -19,30 +20,11 @@ Page {
             wrapMode: Text.WrapAtWordBoundaryOrAnywhere
         }
 
-        ListView {
+        ConsoleListView {
             id: listView
             Layout.fillWidth: true
             Layout.fillHeight: true
             model: _console
-            clip: true
-            ScrollBar.vertical: ScrollBar {
-                width: 20
-            }
-
-            delegate: Frame {
-                width: ListView.view.width - 20
-
-                background: Rectangle {
-                    color: (index & 1) ? "#f0f0f0" : "#e0e0e0"
-                }
-
-                Text {
-                    width: parent.width
-
-                    text: message
-                    wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-                }
-            }
         }
     }
 
@@ -88,15 +70,10 @@ Page {
         }
     }
 
-    ListModel {
+    ConsoleListModel {
         id: _console
 
-        function log(...params) {
-            let message = Qt.formatDateTime(new Date(), "[hh:mm:ss] ") + params.join(" ");
-            console.log(message);
-            append( { message } );
-            listView.currentIndex = count - 1;
-        }
+        onCountChanged: if (count - 1 > listView.currentIndex) listView.currentIndex = count - 1
     }
 
     QMLPromises {
@@ -116,6 +93,11 @@ Page {
                 yield sleep(1000);
                 _console.log('Three');
             } )();
+        }
+
+        errorHandler: function (err) {
+            _console.error(err.message);
+            defaultErrorHandler(err);
         }
     }
 }

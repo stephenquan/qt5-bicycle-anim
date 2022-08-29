@@ -10,6 +10,8 @@
         <file>ArcGISSearchDemo.qml</file>
         <file>controls/Icon.qml</file>
         <file>controls/IconButton.qml</file>
+        <file>controls/ConsoleListModel.qml</file>
+        <file>controls/ConsoleListView.qml</file>
         <file>images/a-z-down-32.svg</file>
         <file>images/bicycle-32.svg</file>
         <file>images/chevron-left-32.svg</file>
