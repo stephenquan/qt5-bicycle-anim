@@ -151,9 +151,7 @@ Page {
                 }
                 if (yield solve(startingPoint[0], startingPoint[1])) {
                     message.text = qsTr("Solved!");
-                }
-                else
-                {
+                } else {
                     message.text = qsTr("Cannot solve. :-(");
                 }
             } )();

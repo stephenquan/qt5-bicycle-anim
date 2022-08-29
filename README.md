@@ -29,9 +29,7 @@ Demonstrates how to use pass() to allow an application catch up on UI/UX events.
 ```qml
 QMLPromises {
     id: piCalculator
-
     property double pi: 4.0
-
     function runAsync() {
         asyncToGenerator( function* () {
             let ts = Date.now();
@@ -162,9 +160,7 @@ QMLPromises {
             message.text = qsTr("Solving");
             if (yield solve(startingPoint[0], startingPoint[1])) {
                 message.text = qsTr("Solved!");
-            }
-            else
-            {
+            } else {
                 message.text = qsTr("Cannot solve. :-(");
             }
         } )();
