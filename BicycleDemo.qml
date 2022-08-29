@@ -8,6 +8,8 @@ import "qt5-qml-promises"
 Page {
     title: qsTr("Bicycle Demo")
 
+    property url icon
+
     Rectangle {
         id: body
 

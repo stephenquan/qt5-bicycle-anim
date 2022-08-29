@@ -8,6 +8,7 @@ import "qt5-qml-promises"
 Page {
     title: qsTr("ArcGIS Search Demo")
 
+    property url icon
     property string portalUrl: "https://www.arcgis.com";
     property int total: 0
 

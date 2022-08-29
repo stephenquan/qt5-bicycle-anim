@@ -8,6 +8,8 @@ import "qt5-qml-promises"
 Page {
     title: qsTr("Pi Demo")
 
+    property url icon
+
     ColumnLayout {
         anchors.fill: parent
         anchors.margins: 10
