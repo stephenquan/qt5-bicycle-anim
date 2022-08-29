@@ -65,8 +65,13 @@ Window {
             ListView {
                 anchors.fill: parent
 
-                model: [ "SleepDemo", "InfiniteLoopDemo", "PiDemo", "BicycleDemo", "ArcGISSearchDemo",
-                "MazeDemo"
+                model: [
+                    "Sleep Demo",
+                    "Infinite Loop Demo",
+                    "Pi Demo",
+                    "Bicycle Demo",
+                    "ArcGIS Search Demo",
+                    "Maze Demo"
                 ]
 
                 delegate: Frame {
@@ -77,7 +82,7 @@ Window {
 
                         MouseArea {
                             anchors.fill: parent
-                            onClicked: stackView.push( modelData + ".qml" )
+                            onClicked: stackView.push( modelData.replace(/ /g, "") + ".qml" )
                         }
                     }
 
