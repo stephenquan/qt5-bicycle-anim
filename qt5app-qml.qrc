@@ -1,7 +1,7 @@
 <RCC>
     <qresource prefix="/">
         <file>qtquickcontrols2.conf</file>
-        <file>main.qml</file>
+        <file>qt5app-main.qml</file>
         <file>MainPage.qml</file>
         <file>BicycleDemo.qml</file>
         <file>PiDemo.qml</file>
