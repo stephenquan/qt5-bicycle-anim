@@ -112,10 +112,12 @@ Page {
         property var endingPoint: [7, 8]
 
         function get(x, y) {
+            if (x < 0 || x >= columns || y < 0 || y >= rows) return wall;
             return listModel.get(y * columns + x).ch;
         }
 
         function set(x, y, ch) {
+            if (x < 0 || x >= columns || y < 0 || y >= rows) return;
             listModel.set(y * columns + x, { ch } );
         }
 
@@ -126,10 +128,10 @@ Page {
                 yield sleep(100);
                 // Try to find the next move.
                 if (x === endingPoint[0] && y === endingPoint[1]) return true;
-                if (x > 0 && get(x - 1, y) === free && (yield solve(x - 1, y))) return true;
-                if (x < columns && get(x + 1, y) === free && (yield solve(x + 1, y))) return true;
-                if (y > 0 && get(x, y - 1) === free && (yield solve(x, y - 1))) return true;
-                if (y < rows && get(x, y + 1) === free && (yield solve(x, y + 1))) return true;
+                if (get(x - 1, y) === free && (yield solve(x - 1, y))) return true;
+                if (get(x + 1, y) === free && (yield solve(x + 1, y))) return true;
+                if (get(x, y - 1) === free && (yield solve(x, y - 1))) return true;
+                if (get(x, y + 1) === free && (yield solve(x, y + 1))) return true;
                 // No next move was found, so we backtrack.
                 set(x, y, free);
                 yield sleep(100);
