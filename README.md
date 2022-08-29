@@ -126,6 +126,50 @@ QMLPromises {
 }
 ```
 
+Maze Demo
+---------
+
+Demonstrates how to solve problems with Promise recursion.
+
+```qml
+QMLPromises {
+    id: mazeDemo
+    property var solve: (() => {
+         var _ref = _asyncToGenerator(function* (x, y) {
+             // Make the move (if it's wrong, we will backtrack later).
+             set(y, x, someDude);
+             yield sleep(100);
+             // Try to find the next move.
+             if (x === endingPoint[0] && y === endingPoint[1]) return true;
+             if (x > 0 && get(y, x  - 1) === free && (yield solve(x - 1, y))) return true;
+             if (x < columns && get(y, x + 1) === free && (yield solve(x + 1, y))) return true;
+             if (y > 0 && get(y - 1, x) === free && (yield solve(x, y - 1))) return true;
+             if (y < rows && get(y + 1, x) === free && (yield solve(x, y + 1))) return true;
+             // No next move was found, so we backtrack.
+             set(y, x, free);
+             yield sleep(100);
+             return false;
+         });
+         return function solve(_x, _y) {
+             return _ref.apply(this, arguments);
+         };
+    })();
+
+    function runAsync() {
+        asyncToGenerator( function* () {
+            message.text = qsTr("Solving");
+            if (yield solve(startingPoint[0], startingPoint[1])) {
+                message.text = qsTr("Solved!");
+            }
+            else
+            {
+                message.text = qsTr("Cannot solve. :-(");
+            }
+        } )();
+    }
+}
+```
+
 This application uses the following Qt5 QML submodule libraries:
  - https://github.com/stephenquan/qt5-qml-promises
  - https://github.com/stephenquan/qt5-qml-sortlistmodel

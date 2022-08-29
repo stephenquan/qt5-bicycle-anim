@@ -65,7 +65,9 @@ Window {
             ListView {
                 anchors.fill: parent
 
-                model: [ "SleepDemo", "PiDemo", "BicycleDemo", "ArcGISSearchDemo" ]
+                model: [ "SleepDemo", "PiDemo", "BicycleDemo", "ArcGISSearchDemo",
+                "MazeDemo"
+                ]
 
                 delegate: Frame {
                     width: ListView.view.width - 20

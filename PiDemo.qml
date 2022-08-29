@@ -94,7 +94,7 @@ Page {
                     den += 2;
                     pi += 4.0 / den;
                     den += 2;
-                    if (Date.now() > ts + 200) {
+                    if (Date.now() > ts + 50) {
                         yield pass();
                         ts = Date.now();
                     }

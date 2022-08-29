@@ -5,6 +5,7 @@
         <file>BicycleDemo.qml</file>
         <file>PiDemo.qml</file>
         <file>SleepDemo.qml</file>
+        <file>MazeDemo.qml</file>
         <file>ArcGISSearchDemo.qml</file>
         <file>controls/Icon.qml</file>
         <file>controls/IconButton.qml</file>
