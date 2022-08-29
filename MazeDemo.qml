@@ -17,7 +17,7 @@ Page {
         Text {
             Layout.fillWidth: true
 
-            text: qsTr("Solves a maze using recusion Promises.")
+            text: qsTr("Solves a maze using recursion and Promises.")
             wrapMode: Text.WrapAtWordBoundaryOrAnywhere
         }
 
