@@ -19,6 +19,12 @@ Page {
             wrapMode: Text.WrapAtWordBoundaryOrAnywhere
         }
 
+        TextMetrics {
+            id: tm
+            text: '#'
+            font.pointSize: 14
+        }
+
         Item {
             Layout.fillWidth: true
             Layout.fillHeight: true
@@ -28,10 +34,6 @@ Page {
                 model: mazeDemo.listModel
                 cellWidth: tm.width
                 cellHeight: tm.height
-                property TextMetrics tm: TextMetrics {
-                    text: '#'
-                    font.pointSize: 14
-                }
                 width: cellWidth * mazeDemo.columns
                 height: cellHeight * mazeDemo.rows
                 delegate: Text {
@@ -119,7 +121,7 @@ Page {
 
         property var solve: (() => {
              var _ref = _asyncToGenerator(function* (x, y) {
-                 // Make the move (if it's wrong, we will backtrack later.
+                 // Make the move (if it's wrong, we will backtrack later).
                  set(y, x, someDude);
                  yield sleep(100);
                  // Try to find the next move.
