@@ -4,6 +4,7 @@
         <file>qt5app-main.qml</file>
         <file>MainPage.qml</file>
         <file>BicycleDemo.qml</file>
+        <file>FactorialDemo.qml</file>
         <file>PiDemo.qml</file>
         <file>SleepDemo.qml</file>
         <file>InfiniteLoopDemo.qml</file>

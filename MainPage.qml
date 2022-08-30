@@ -59,6 +59,7 @@ Page {
                     { title: "Sleep Demo", file: "SleepDemo.qml", icon: "images/clock-32.svg" },
                     { title: "Infinite Loop Demo", file: "InfiniteLoopDemo.qml", icon: "images/recurrence-32.svg" },
                     { title: "Pi Demo", file: "PiDemo.qml", icon: "images/calculator-32.svg" },
+                    { title: "Factorial Demo", file: "FactorialDemo.qml", icon: "images/calculator-32.svg" },
                     { title: "Bicycle Demo", file: "BicycleDemo.qml", icon: "images/bicycle-32.svg" },
                     { title: "ArcGIS Search Demo", file: "ArcGISSearchDemo.qml", icon: "images/file-magnifying-glass-32.svg" },
                     { title: "Maze Demo", file: "MazeDemo.qml", icon: "images/puzzle-piece-32.svg" }
