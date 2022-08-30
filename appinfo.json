@@ -96,6 +96,7 @@
         "ignore": [
             "qt5app-*.*",
             "screenshots/*.*"
+            "publish/*.*"
         ]
     },
     "multipleInstances": true,
