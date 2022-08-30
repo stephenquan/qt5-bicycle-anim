@@ -95,7 +95,7 @@
     "make": {
         "ignore": [
             "qt5app-*.*",
-            "screenshots/*.*"
+            "screenshots/*.*",
             "publish/*.*"
         ]
     },
