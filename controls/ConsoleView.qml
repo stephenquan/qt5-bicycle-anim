@@ -9,7 +9,7 @@ ListView {
         id: listModel
 
         function appendMessage(message, messageColor) {
-            let timestamp = Date.now();
+            let timestamp = Qt.formatDateTime(new Date(), "hh:mm:ss.zzz");
             listModel.append( { timestamp, message, messageColor } );
             currentIndex = listModel.count - 1;
         }
@@ -38,7 +38,7 @@ ListView {
             }
 
             Text {
-                text: Qt.formatDateTime(new Date(timestamp), "hh:mm:ss.zzz");
+                text: timestamp
                 color: "#808080"
             }
         }
