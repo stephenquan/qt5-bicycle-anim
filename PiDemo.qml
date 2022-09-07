@@ -8,6 +8,8 @@ import "qt5-qml-promises"
 Page {
     title: qsTr("Pi Demo")
 
+    property url icon
+
     ColumnLayout {
         anchors.fill: parent
         anchors.margins: 10
@@ -89,15 +91,14 @@ Page {
             asyncToGenerator( function* () {
                 let ts = Date.now();
                 pi = 4.0;
-                for (let den = 3; ; ) {
-                    pi -= 4.0 / den;
-                    den += 2;
-                    pi += 4.0 / den;
-                    den += 2;
-                    if (Date.now() > ts + 50) {
-                        yield pass();
-                        ts = Date.now();
+                for (let den = 3; true; ) {
+                    for (ts = Date.now(); Date.now() < ts + 50; ) {
+                        pi -= 4.0 / den;
+                        den += 2;
+                        pi += 4.0 / den;
+                        den += 2;
                     }
+                    yield pass();
                 }
             } )();
         }

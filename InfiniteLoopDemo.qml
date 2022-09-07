@@ -9,6 +9,8 @@ import "controls"
 Page {
     title: qsTr("Infinite Loop Demo")
 
+    property url icon
+
     ColumnLayout {
         anchors.fill: parent
         anchors.margins: 10

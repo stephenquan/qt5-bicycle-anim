@@ -8,6 +8,8 @@ import "qt5-qml-promises"
 Page {
     title: qsTr("Maze Demo")
 
+    property url icon
+
     ColumnLayout {
         anchors.fill: parent
         anchors.margins: 10
@@ -15,7 +17,7 @@ Page {
         Text {
             Layout.fillWidth: true
 
-            text: qsTr("Solves a maze using recusion Promises.")
+            text: qsTr("Solves a maze using recursion and Promises.")
             wrapMode: Text.WrapAtWordBoundaryOrAnywhere
         }
 
@@ -81,8 +83,7 @@ Page {
     QMLPromises {
         id: mazeDemo
         property ListModel listModel: ListModel { }
-        property var maze:
-        [
+        property var maze: [
             "# #######",
             "#   #   #",
             "# ### # #",
@@ -135,12 +136,7 @@ Page {
         function runAsync() {
             asyncToGenerator( function* () {
                 message.text = qsTr("Solving");
-                listModel.clear();
-                for (let line of maze) {
-                    for (let ch of line.split('')) {
-                        listModel.append( { ch } );
-                    }
-                }
+                init();
                 if (yield solve(startingPoint[0], startingPoint[1])) {
                     message.text = qsTr("Solved!");
                 } else {
@@ -148,5 +144,16 @@ Page {
                 }
             } )();
         }
+
+        function init() {
+            listModel.clear();
+            for (let line of maze) {
+                for (let ch of line.split('')) {
+                    listModel.append( { ch } );
+                }
+            }
+        }
+
+        Component.onCompleted: init()
     }
 }

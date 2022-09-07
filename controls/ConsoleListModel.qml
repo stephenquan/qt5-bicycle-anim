@@ -4,14 +4,18 @@ ListModel {
     id: _console
 
     function log(...params) {
-        let message = Qt.formatDateTime(new Date(), "[hh:mm:ss.zzz] ") + params.join(" ");
-        console.log(message);
-        append( { message, messageColor: "black" } );
+        console.log(...params);
+        let timestamp = Qt.formatDateTime(new Date(), "hh:mm:ss.zzz");
+        let message = params.join(" ");
+        let messageColor = "black";
+        append( { timestamp, message, messageColor } );
     }
 
     function error(...params) {
-        let message = Qt.formatDateTime(new Date(), "[hh:mm:ss.zzz] ") + params.join(" ");
-        console.error(message);
-        append( { message, messageColor: "red" } );
+        console.error(...params);
+        let timestamp = Qt.formatDateTime(new Date(), "hh:mm:ss.zzz");
+        let message = params.join(" ");
+        let messageColor = "red";
+        append( { timestamp, message, messageColor } );
     }
 }

@@ -1,4 +1,5 @@
 {
+    "appLink": "",
     "capabilities": {
         "audio": false,
         "backgroundModes": {
@@ -28,7 +29,7 @@
             ]
         },
         "localnotification": false,
-        "location": true,
+        "location": false,
         "microphone": false,
         "network": true,
         "storage": false,
@@ -36,17 +37,25 @@
     },
     "deployment": {
         "android": {
+            "packageName": "com.stephenquan.qt5promisedemo"
         },
+        "arcgisApiKey": "",
         "arcgisRuntimeExtensionsLicense": "",
         "arcgisRuntimeLicense": "",
+        "clientId": "",
         "ios": {
+            "bundleId": "com.stephenquan.qt5promisedemo",
             "codeSignIdentity": ""
         },
         "macos": {
+            "bundleId": "com.stephenquan.qt5promisedemo",
             "codeSignIdentity": ""
         },
+        "publisherName": "",
         "shortcutName": "",
         "uwp": {
+            "packageName": "",
+            "productID": ""
         },
         "winphone": {
             "packageDisplayName": ""
@@ -83,6 +92,13 @@
     "launchUrlSchemes": [
     ],
     "mainFile": "MyApp.qml",
+    "make": {
+        "ignore": [
+            "qt5app-*.*",
+            "screenshots/*.*",
+            "publish/*.*"
+        ]
+    },
     "multipleInstances": true,
     "projectFile": "MyApp.qmlproject",
     "properties": {
@@ -90,13 +106,14 @@
     "resources": {
         "appIcon": "appicon.png",
         "launchImageBackground": "launchimage-background.png",
-        "launchImageBackgroundColor": "#ffffff",
+        "launchImageBackgroundColor": "#e3c4ee",
         "launchImageOverlay": "launchimage-overlay.png"
     },
     "type": "app",
     "universalLink": "",
+    "urlScheme": "",
     "version": {
         "major": 1,
-        "micro": 3
+        "micro": 11
     }
 }

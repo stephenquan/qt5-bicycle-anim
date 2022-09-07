@@ -7,7 +7,7 @@ import "qt5-qml-promises"
 import "controls"
 
 Page {
-    title: qsTr("Sleep Demo")
+    title: qsTr("Factorial Demo")
 
     property url icon
 
@@ -18,7 +18,7 @@ Page {
         Text {
             Layout.fillWidth: true
 
-            text: "Demonstrates how to use sleep() delay in a Promise chain."
+            text: qsTr("Demonstrates simple recursion with Promises.")
             wrapMode: Text.WrapAtWordBoundaryOrAnywhere
         }
 
@@ -39,20 +39,9 @@ Page {
             width: parent.width
 
             Button {
-                text: qsTr("Run")
-                onClicked: {
-                    enabled = false;
-                    Qt.callLater( function () {
-                        sleepDemo.run();
-                        enabled = true;
-                    } );
-                }
-            }
-
-            Button {
-                text: qsTr("RunAsync")
-                enabled: !sleepDemo.running
-                onClicked: sleepDemo.runAsync()
+                text: qsTr("Start")
+                enabled: !factorialDemo.running
+                onClicked: factorialDemo.runAsync()
             }
 
             Button {
@@ -66,8 +55,8 @@ Page {
 
             Button {
                 text: qsTr("Abort")
-                enabled: sleepDemo.running
-                onClicked: sleepDemo.abort()
+                enabled: factorialDemo.running
+                onClicked: factorialDemo.abort()
             }
         }
     }
@@ -79,21 +68,25 @@ Page {
     }
 
     QMLPromises {
-        id: sleepDemo
+        id: factorialDemo
 
-        function run() {
-            _console.log('one');
-            _console.log('two');
-            _console.log('three');
-        }
+        property var factorial: (() => {
+          var _ref = _asyncToGenerator(function* (n) {
+            if (n <= 1) return 1;
+            return n * (yield factorial(n - 1));
+          });
+
+          return function factorial(_n) {
+            return _ref.apply(this, arguments);
+          };
+        })();
 
         function runAsync() {
             asyncToGenerator( function* () {
-                _console.log('One');
-                yield sleep(1000);
-                _console.log('Two');
-                yield sleep(1000);
-                _console.log('Three');
+                for (let i = 1; i <= 10; i++) {
+                  _console.log("factorial(%1) = %2".arg(i).arg(yield factorial(i)));
+                  yield sleep(1000);
+                }
             } )();
         }
 

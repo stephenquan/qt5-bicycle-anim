@@ -1,8 +1,10 @@
 <RCC>
     <qresource prefix="/">
         <file>qtquickcontrols2.conf</file>
-        <file>main.qml</file>
+        <file>qt5app-main.qml</file>
+        <file>MainPage.qml</file>
         <file>BicycleDemo.qml</file>
+        <file>FactorialDemo.qml</file>
         <file>PiDemo.qml</file>
         <file>SleepDemo.qml</file>
         <file>InfiniteLoopDemo.qml</file>
@@ -13,10 +15,17 @@
         <file>controls/ConsoleListModel.qml</file>
         <file>controls/ConsoleListView.qml</file>
         <file>images/a-z-down-32.svg</file>
+        <file>images/apps-32.svg</file>
         <file>images/bicycle-32.svg</file>
+        <file>images/calculator-32.svg</file>
         <file>images/chevron-left-32.svg</file>
         <file>images/chevron-right-32.svg</file>
+        <file>images/clock-32.svg</file>
         <file>images/clock-up-32.svg</file>
+        <file>images/file-magnifying-glass-32.svg</file>
+        <file>images/grid-32.svg</file>
+        <file>images/puzzle-piece-32.svg</file>
+        <file>images/recurrence-32.svg</file>
         <file>images/smile-32.svg</file>
         <file>qt5-qml-promises/QMLPromises.qml</file>
         <file>qt5-qml-promises/NumberAnimationPromiseComponent.qml</file>
