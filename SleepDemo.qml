@@ -22,11 +22,10 @@ Page {
             wrapMode: Text.WrapAtWordBoundaryOrAnywhere
         }
 
-        ConsoleListView {
-            id: listView
+        ConsoleView {
+            id: _console
             Layout.fillWidth: true
             Layout.fillHeight: true
-            model: _console
         }
     }
 
@@ -70,12 +69,6 @@ Page {
                 onClicked: sleepDemo.abort()
             }
         }
-    }
-
-    ConsoleListModel {
-        id: _console
-
-        onCountChanged: if (count - 1 > listView.currentIndex) listView.currentIndex = count - 1
     }
 
     QMLPromises {
