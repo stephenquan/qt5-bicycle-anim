@@ -4,3 +4,6 @@
 [submodule "qt5-qml-sortlistmodel"]
 	path = qt5-qml-sortlistmodel
 	url = https://github.com/stephenquan/qt5-qml-sortlistmodel.git
+[submodule "esri-calcite-ui-icons"]
+	path = esri-calcite-ui-icons
+	url = https://github.com/stephenquan/esri-calcite-ui-icons.git

@@ -19,7 +19,7 @@ Page {
             IconButton {
                 Layout.preferredWidth: 32
                 Layout.preferredHeight: 32
-                source: "images/chevron-left-32.svg"
+                source: "esri-calcite-ui-icons/chevron-left-32.svg"
                 visible: stackView.depth > 1
                 onClicked: stackView.pop()
             }
@@ -27,7 +27,7 @@ Page {
             Icon {
                 Layout.preferredWidth: 32
                 Layout.preferredHeight: 32
-                source: (stackView.currentPage ? stackView.currentPage.icon : null) || "images/apps-32.svg"
+                source: (stackView.currentPage ? stackView.currentPage.icon : null) || "esri-calcite-ui-icons/apps-32.svg"
             }
 
             Text {
@@ -56,13 +56,13 @@ Page {
                 anchors.fill: parent
 
                 model: [
-                    { title: "Sleep Demo", file: "SleepDemo.qml", icon: "images/clock-32.svg" },
-                    { title: "Infinite Loop Demo", file: "InfiniteLoopDemo.qml", icon: "images/recurrence-32.svg" },
-                    { title: "Pi Demo", file: "PiDemo.qml", icon: "images/calculator-32.svg" },
-                    { title: "Factorial Demo", file: "FactorialDemo.qml", icon: "images/calculator-32.svg" },
-                    { title: "Bicycle Demo", file: "BicycleDemo.qml", icon: "images/bicycle-32.svg" },
-                    { title: "ArcGIS Search Demo", file: "ArcGISSearchDemo.qml", icon: "images/file-magnifying-glass-32.svg" },
-                    { title: "Maze Demo", file: "MazeDemo.qml", icon: "images/puzzle-piece-32.svg" }
+                    { title: "Sleep Demo", file: "SleepDemo.qml", icon: "esri-calcite-ui-icons/clock-32.svg" },
+                    { title: "Infinite Loop Demo", file: "InfiniteLoopDemo.qml", icon: "esri-calcite-ui-icons/recurrence-32.svg" },
+                    { title: "Pi Demo", file: "PiDemo.qml", icon: "esri-calcite-ui-icons/calculator-32.svg" },
+                    { title: "Factorial Demo", file: "FactorialDemo.qml", icon: "esri-calcite-ui-icons/calculator-32.svg" },
+                    { title: "Bicycle Demo", file: "BicycleDemo.qml", icon: "esri-calcite-ui-icons/biking-32.svg" },
+                    { title: "ArcGIS Search Demo", file: "ArcGISSearchDemo.qml", icon: "esri-calcite-ui-icons/file-magnifying-glass-32.svg" },
+                    { title: "Maze Demo", file: "MazeDemo.qml", icon: "esri-calcite-ui-icons/puzzle-piece-32.svg" }
                 ]
 
                 delegate: Frame {
@@ -83,7 +83,7 @@ Page {
                         Icon {
                             Layout.preferredWidth: 32
                             Layout.preferredHeight: 32
-                            source: modelData.icon ?? "images/apps-32.svg"
+                            source: modelData.icon ?? "esri-calcite-ui-icons/apps-32.svg"
                         }
 
                         Text {
@@ -94,7 +94,7 @@ Page {
                         Icon {
                             Layout.preferredWidth: 32
                             Layout.preferredHeight: 32
-                            source: "images/chevron-right-32.svg"
+                            source: "esri-calcite-ui-icons/chevron-right-32.svg"
                         }
                     }
                 }

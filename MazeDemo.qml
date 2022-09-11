@@ -34,16 +34,27 @@ Page {
             GridView {
                 anchors.centerIn: parent
                 model: mazeDemo.listModel
-                cellWidth: tm.width
-                cellHeight: tm.height
+                cellWidth: 32
+                cellHeight: 32
                 width: cellWidth * mazeDemo.columns
                 height: cellHeight * mazeDemo.rows
-                delegate: Text {
+                delegate: Item {
                     width: GridView.view.cellWidth
                     height: GridView.view.cellHeight
-                    text: ch
-                    font.pointSize: tm.font.pointSize
-                    color: ch === '*' ? 'red': 'black'
+                    Button {
+                        anchors.centerIn: parent
+                        background: Item { }
+                        icon.source: ({
+                            "#": "esri-calcite-ui-icons/grid-hexagon-32.svg",
+                            "*": "esri-calcite-ui-icons/circle-area-32.svg"
+                        })[ch] || ""
+                        icon.color: ({
+                                         "#": "grey",
+                                         "*": "green"
+                                     })[ch] || "black"
+                        icon.width: 32
+                        icon.height: 32
+                    }
                 }
             }
         }
