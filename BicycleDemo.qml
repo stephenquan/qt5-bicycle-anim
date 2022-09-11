@@ -30,7 +30,7 @@ Page {
                 id: bicycleButton
                 anchors.centerIn: parent
                 background: Item { }
-                icon.source: "images/bicycle-32.svg"
+                icon.source: "esri-calcite-ui-icons/biking-32.svg"
                 icon.width: 64
                 icon.height: 64
                 icon.color: parent.color

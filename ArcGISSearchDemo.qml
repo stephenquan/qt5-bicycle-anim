@@ -110,7 +110,7 @@ Page {
             }
 
             Button {
-                icon.source: "images/clock-up-32.svg"
+                icon.source: "esri-calcite-ui-icons/clock-up-32.svg"
                 icon.width: 24
                 icon.height: 24
                 enabled: itemsListModel.sortRole !== itemsListModel.orderByModified
@@ -120,7 +120,7 @@ Page {
             }
 
             Button {
-                icon.source: "images/a-z-down-32.svg"
+                icon.source: "esri-calcite-ui-icons/a-z-down-32.svg"
                 icon.width: 24
                 icon.height: 24
                 enabled: itemsListModel.sortRole !== itemsListModel.orderByTitle
