@@ -101,4 +101,15 @@ Page {
             }
         }
     }
+
+    focus: true
+
+    Keys.onReleased: {
+        if (event.key === Qt.Key_Back) {
+            if (stackView.depth > 1) {
+                event.accepted = true;
+                stackView.pop();
+            }
+        }
+    }
 }
