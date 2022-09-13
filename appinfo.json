@@ -94,9 +94,7 @@
     "mainFile": "MyApp.qml",
     "make": {
         "ignore": [
-            "qt5app-*.*",
-            "screenshots/*.*",
-            "publish/*.*"
+            "qt5app-*.*"
         ]
     },
     "multipleInstances": true,
