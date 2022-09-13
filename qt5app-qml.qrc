@@ -13,19 +13,21 @@
         <file>controls/Icon.qml</file>
         <file>controls/IconButton.qml</file>
         <file>controls/ConsoleView.qml</file>
-        <file>images/a-z-down-32.svg</file>
-        <file>images/apps-32.svg</file>
-        <file>images/bicycle-32.svg</file>
-        <file>images/calculator-32.svg</file>
-        <file>images/chevron-left-32.svg</file>
-        <file>images/chevron-right-32.svg</file>
-        <file>images/clock-32.svg</file>
-        <file>images/clock-up-32.svg</file>
-        <file>images/file-magnifying-glass-32.svg</file>
-        <file>images/grid-32.svg</file>
-        <file>images/puzzle-piece-32.svg</file>
-        <file>images/recurrence-32.svg</file>
-        <file>images/smile-32.svg</file>
+        <file>esri-calcite-ui-icons/a-z-down-32.svg</file>
+        <file>esri-calcite-ui-icons/apps-32.svg</file>
+        <file>esri-calcite-ui-icons/biking-32.svg</file>
+        <file>esri-calcite-ui-icons/calculator-32.svg</file>
+        <file>esri-calcite-ui-icons/chevron-left-32.svg</file>
+        <file>esri-calcite-ui-icons/chevron-right-32.svg</file>
+        <file>esri-calcite-ui-icons/circle-area-32.svg</file>
+        <file>esri-calcite-ui-icons/clock-32.svg</file>
+        <file>esri-calcite-ui-icons/clock-up-32.svg</file>
+        <file>esri-calcite-ui-icons/file-magnifying-glass-32.svg</file>
+        <file>esri-calcite-ui-icons/grid-32.svg</file>
+        <file>esri-calcite-ui-icons/grid-hexagon-32.svg</file>
+        <file>esri-calcite-ui-icons/puzzle-piece-32.svg</file>
+        <file>esri-calcite-ui-icons/recurrence-32.svg</file>
+        <file>esri-calcite-ui-icons/smile-32.svg</file>
         <file>qt5-qml-promises/QMLPromises.qml</file>
         <file>qt5-qml-promises/NumberAnimationPromiseComponent.qml</file>
         <file>qt5-qml-promises/SleepPromiseComponent.qml</file>
