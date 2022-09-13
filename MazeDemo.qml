@@ -145,6 +145,7 @@ Page {
         })();
 
         function runAsync() {
+            gc();
             asyncToGenerator( function* () {
                 message.text = qsTr("Solving");
                 init();
