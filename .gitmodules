@@ -7,3 +7,6 @@
 [submodule "esri-calcite-ui-icons"]
 	path = esri-calcite-ui-icons
 	url = https://github.com/stephenquan/esri-calcite-ui-icons.git
+[submodule "qt5-qml-toolkit"]
+	path = qt5-qml-toolkit
+	url = https://github.com/stephenquan/qt5-qml-toolkit.git
