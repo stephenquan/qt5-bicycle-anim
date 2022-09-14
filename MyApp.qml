@@ -14,5 +14,10 @@ App {
     MainPage {
         anchors.fill: parent
         title: app.info.title
+        info: ({
+                   "appTitle": app.info.title,
+                   "appVersion": app.info.version,
+                   "Qt version": AppFramework.qtVersion
+               })
     }
 }

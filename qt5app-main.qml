@@ -13,5 +13,12 @@ Window {
     MainPage {
         anchors.fill: parent
         title: app.title
+        info: ( {
+            "appTitle": itemInfo.title,
+            "appVersion": appInfo.versionString,
+            "Qt version": qtVersion
+        } )
     }
+
+    Component.onCompleted: console.log(JSON.stringify(appInfo, undefined, 2));
 }

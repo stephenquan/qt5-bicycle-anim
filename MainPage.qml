@@ -8,6 +8,8 @@ import "controls"
 Page {
     id: mainPage
 
+    property var info: ({ })
+
     header: Frame {
         background: Rectangle {
             color: "#f0f0f0"
@@ -35,7 +37,20 @@ Page {
                 text: (stackView.currentPage ? stackView.currentPage.title : null) || mainPage.title
                 wrapMode: Text.WrapAtWordBoundaryOrAnywhere
             }
+
+            IconButton {
+                Layout.preferredWidth: 32
+                Layout.preferredHeight: 32
+                source: "esri-calcite-ui-icons/information-32.svg"
+                visible: !stackView.currentPage.isAboutPage
+                onClicked: stackView.push( "AboutPage.qml", { info } );
+            }
         }
+    }
+
+    Text {
+        anchors.fill: parent
+        text: JSON.stringify(info, undefined, 2)
     }
 
     StackView {

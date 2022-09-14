@@ -1,6 +1,8 @@
 <RCC>
     <qresource prefix="/">
         <file>qtquickcontrols2.conf</file>
+        <file>appinfo.json</file>
+        <file>iteminfo.json</file>
         <file>qt5app-main.qml</file>
         <file>MainPage.qml</file>
         <file>BicycleDemo.qml</file>
@@ -25,6 +27,7 @@
         <file>esri-calcite-ui-icons/file-magnifying-glass-32.svg</file>
         <file>esri-calcite-ui-icons/grid-32.svg</file>
         <file>esri-calcite-ui-icons/grid-hexagon-32.svg</file>
+        <file>esri-calcite-ui-icons/information-32.svg</file>
         <file>esri-calcite-ui-icons/puzzle-piece-32.svg</file>
         <file>esri-calcite-ui-icons/recurrence-32.svg</file>
         <file>esri-calcite-ui-icons/smile-32.svg</file>
@@ -33,5 +36,6 @@
         <file>qt5-qml-promises/SleepPromiseComponent.qml</file>
         <file>qt5-qml-promises/WaitUntilPromiseComponent.qml</file>
         <file>qt5-qml-sortlistmodel/SortListModel.qml</file>
+        <file>AboutPage.qml</file>
     </qresource>
 </RCC>
