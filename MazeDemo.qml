@@ -45,8 +45,8 @@ Page {
                         anchors.centerIn: parent
                         background: Item { }
                         icon.source: ({
-                            "#": "esri-calcite-ui-icons/grid-hexagon-32.svg",
-                            "*": "esri-calcite-ui-icons/circle-area-32.svg"
+                            "#": "images/grid-hexagon-32.svg",
+                            "*": "images/circle-area-32.svg"
                         })[ch] || ""
                         icon.color: ({
                                          "#": "grey",
@@ -127,7 +127,7 @@ Page {
             var _ref = _asyncToGenerator(function* (x, y) {
                 // Make the move (if it's wrong, we will backtrack later).
                 set(x, y, someDude);
-                yield sleep(100);
+                yield sleep(50);
                 // Try to find the next move.
                 if (x === endingPoint[0] && y === endingPoint[1]) return true;
                 if (get(x - 1, y) === free && (yield solve(x - 1, y))) return true;
@@ -136,7 +136,7 @@ Page {
                 if (get(x, y + 1) === free && (yield solve(x, y + 1))) return true;
                 // No next move was found, so we backtrack.
                 set(x, y, free);
-                yield sleep(100);
+                yield sleep(50);
                 return false;
             });
             return function solve(_x, _y) {

@@ -30,7 +30,7 @@ Page {
                 id: bicycleButton
                 anchors.centerIn: parent
                 background: Item { }
-                icon.source: "esri-calcite-ui-icons/biking-32.svg"
+                icon.source: "images/biking-32.svg"
                 icon.width: 64
                 icon.height: 64
                 icon.color: parent.color
@@ -98,14 +98,14 @@ Page {
                 message.color = "white";
                 messageFrame.background.color = "green";
                 yield numberAnimation( { target: messageFrame, property: "opacity", from: 1.0, to: 0.0, duration: 1000 } );
-                yield numberAnimation( { target: bicycle, property: "x", from: 50, to: 250, duration: 1000 } );
-                yield numberAnimation( { target: bicycle, property: "rotation", from: 0, to: -90, duration: 1000 } );
-                yield numberAnimation( { target: bicycle, property: "y", from: 250, to: 50, duration: 1000 } );
-                yield numberAnimation( { target: bicycle, property: "rotation", from: -90, to: -180, duration: 1000 } );
-                yield numberAnimation( { target: bicycle, property: "x", from: 250, to: 50, duration: 1000 } );
-                yield numberAnimation( { target: bicycle, property: "rotation", from: 180, to: 90, duration: 1000 } );
-                yield numberAnimation( { target: bicycle, property: "y", from: 50, to: 250, duration: 1000 } );
-                yield numberAnimation( { target: bicycle, property: "rotation", from: 90, to: 0, duration: 1000 } );
+                yield numberAnimation( { target: bicycle, property: "x", from: 50, to: 250, duration: 500 } );
+                yield numberAnimation( { target: bicycle, property: "rotation", from: 0, to: -90, duration: 500 } );
+                yield numberAnimation( { target: bicycle, property: "y", from: 250, to: 50, duration: 500 } );
+                yield numberAnimation( { target: bicycle, property: "rotation", from: -90, to: -180, duration: 500 } );
+                yield numberAnimation( { target: bicycle, property: "x", from: 250, to: 50, duration: 500 } );
+                yield numberAnimation( { target: bicycle, property: "rotation", from: 180, to: 90, duration: 500 } );
+                yield numberAnimation( { target: bicycle, property: "y", from: 50, to: 250, duration: 500 } );
+                yield numberAnimation( { target: bicycle, property: "rotation", from: 90, to: 0, duration: 500 } );
             } )();
         }
     }

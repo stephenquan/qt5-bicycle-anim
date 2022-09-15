@@ -88,17 +88,19 @@ Page {
         }
 
         function runAsync() {
+            gc();
             asyncToGenerator( function* () {
-                let ts = Date.now();
                 pi = 4.0;
+                console.log(pi);
                 for (let den = 3; true; ) {
-                    for (ts = Date.now(); Date.now() < ts + 50; ) {
+                    for (let ts = Date.now(); Date.now() < ts + 50; ) {
                         pi -= 4.0 / den;
                         den += 2;
                         pi += 4.0 / den;
                         den += 2;
                     }
-                    yield pass();
+                    console.log(pi);
+                    yield sleep(1);
                 }
             } )();
         }

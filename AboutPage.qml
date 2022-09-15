@@ -5,7 +5,7 @@ import QtQuick.Layouts 1.15
 Page {
     title: qsTr("About")
 
-    property url icon: "esri-calcite-ui-icons/information-32.svg"
+    property url icon: "images/information-32.svg"
     property var info
     property bool isAboutPage: true
 
