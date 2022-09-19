@@ -63,6 +63,21 @@ Page {
             id: message
             Layout.fillWidth: true
         }
+
+        ComboBox {
+            id: gcMethod
+            Layout.fillWidth: true
+            property bool gcAuto: currentIndex === 0
+            property bool gcAtStart: currentIndex === 1
+            property bool gcManual: currentIndex === 2
+            property bool gcEveryPromise: currentIndex === 3
+            model: [
+                "default automatic gc()",
+                "gc() at start",
+                "manual gc()",
+                "gc() every promise"
+            ]
+        }
     }
 
     footer: Frame {
@@ -81,6 +96,15 @@ Page {
 
             Item {
                 Layout.fillWidth: true
+            }
+
+            Button {
+                text: qsTr("gc()")
+                visible: gcMethod.gcManual
+                onClicked: {
+                    console.log("GCMETHOD: MANUAL GC");
+                    gc();
+                }
             }
 
             Button {
@@ -125,9 +149,13 @@ Page {
 
         property var solve: (() => {
             var _ref = _asyncToGenerator(function* (x, y) {
+                if (gcMethod.gcEveryPromise) {
+                    console.log("GCMETHOD: GC EVERY PROMISE");
+                    gc();
+                }
                 // Make the move (if it's wrong, we will backtrack later).
                 set(x, y, someDude);
-                yield sleep(50);
+                yield sleep(100);
                 // Try to find the next move.
                 if (x === endingPoint[0] && y === endingPoint[1]) return true;
                 if (get(x - 1, y) === free && (yield solve(x - 1, y))) return true;
@@ -136,7 +164,7 @@ Page {
                 if (get(x, y + 1) === free && (yield solve(x, y + 1))) return true;
                 // No next move was found, so we backtrack.
                 set(x, y, free);
-                yield sleep(50);
+                yield sleep(100);
                 return false;
             });
             return function solve(_x, _y) {
@@ -145,7 +173,10 @@ Page {
         })();
 
         function runAsync() {
-            gc();
+            if (gcMethod.gcAtStart) {
+                console.log("GCMETHOD: GC AT START");
+                gc();
+            }
             asyncToGenerator( function* () {
                 message.text = qsTr("Solving");
                 init();
