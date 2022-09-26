@@ -95,7 +95,7 @@
     "make": {
         "ignore": [
             "qt5app-*.*",
-            "images"
+            "esri-calcite-ui-icons"
         ]
     },
     "multipleInstances": true,
@@ -113,6 +113,7 @@
     "urlScheme": "",
     "version": {
         "major": 1,
-        "micro": 15
+        "micro": 3,
+        "minor": 1
     }
 }
