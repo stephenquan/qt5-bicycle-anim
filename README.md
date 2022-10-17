@@ -172,4 +172,5 @@ This application uses the following Qt5 QML submodule libraries:
 To clone this repo, use:
 
     git clone https://github.com/stephenquan/qt5-qml-promise-demo.git
+    git submodule init
     git submodule update
